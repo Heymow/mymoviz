@@ -49,14 +49,13 @@ function Home() {
 
     const isLiked = likedMovies.some(movie => movie === data.title);
 
-    const posterUrl = `https://image.tmdb.org/t/p/w200${data.poster_path}`
+    const posterUrl = `https://image.tmdb.org/t/p/w500${data.poster_path}`
 
     let formattedOverview = data.overview;
     if (formattedOverview.length > 250) {
-      formattedOverview = data.overview.slice(0, 250);
-      formattedOverview = formattedOverview.concat(' ', '...')
+      formattedOverview = (formattedOverview.slice(0, 250)) + ' ...'
     }
-    return <Movie key={i} updateLikedMovies={updateLikedMovies} isLiked={isLiked} title={data.title} overview={formattedOverview} poster={posterUrl} voteAverage={data.voteAverage} voteCount={data.voteCount} />;
+    return <Movie key={i} updateLikedMovies={updateLikedMovies} isLiked={isLiked} title={data.original_title} overview={formattedOverview} poster={posterUrl} voteAverage={data.vote_average} voteCount={data.vote_count} />;
   });
 
   return (
