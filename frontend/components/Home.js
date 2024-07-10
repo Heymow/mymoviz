@@ -13,7 +13,7 @@ function Home() {
 
   useEffect(() => {
     const start = async () => {
-      const fetched = await fetch('http://localhost:3000/movies');
+      const fetched = await fetch('https://mymoviz-back-olive.vercel.app/movies');
       const jsoned = await fetched.json();
       setMoviesList(jsoned.movies);
     }
